@@ -34,6 +34,7 @@ OIDS=FALSE
 CREATE TABLE "operator" (
 	"id" serial NOT NULL,
 	"name" varchar NOT NULL,
+	"role_id" int NOT NULL,
 	CONSTRAINT operator_pk PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE
@@ -45,7 +46,18 @@ CREATE TABLE "document" (
 	"id" serial NOT NULL,
 	"cat_id" int NOT NULL,
 	"operator_id" int NOT NULL,
+	"name" varchar NOT NULL UNIQUE,
 	CONSTRAINT document_pk PRIMARY KEY ("id")
+) WITH (
+OIDS=FALSE
+);
+
+
+
+CREATE TABLE "role" (
+	"id" serial NOT NULL,
+	"name" varchar NOT NULL,
+	CONSTRAINT role_pk PRIMARY KEY ("id")
 ) WITH (
 OIDS=FALSE
 );
@@ -58,6 +70,8 @@ ALTER TABLE "field" ADD CONSTRAINT "field_fk0" FOREIGN KEY ("cat_id") REFERENCES
 ALTER TABLE "value" ADD CONSTRAINT "value_fk0" FOREIGN KEY ("doc_id") REFERENCES "document"("id");
 ALTER TABLE "value" ADD CONSTRAINT "value_fk1" FOREIGN KEY ("field_id") REFERENCES "field"("id");
 
+ALTER TABLE "operator" ADD CONSTRAINT "operator_fk0" FOREIGN KEY ("role_id") REFERENCES "role"("id");
 
 ALTER TABLE "document" ADD CONSTRAINT "document_fk0" FOREIGN KEY ("cat_id") REFERENCES "category"("id");
 ALTER TABLE "document" ADD CONSTRAINT "document_fk1" FOREIGN KEY ("operator_id") REFERENCES "operator"("id");
+

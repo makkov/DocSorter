@@ -1,3 +1,3 @@
-INSERT INTO operator (name) VALUES ('Ivanov');
-INSERT INTO operator (name) VALUES ('Petrov');
-INSERT INTO operator (name) VALUES ('Sidorov');
+INSERT INTO operator (name, role_id) VALUES ('Ivanov', 1);
+INSERT INTO operator (name, role_id) VALUES ('Petrov', 2);
+INSERT INTO operator (name, role_id) VALUES ('Sidorov', 2);

@@ -11,15 +11,18 @@ insert into field (name, cat_id) values ('scetovod', 2);
 insert into field (name, cat_id) values ('summa', 2);
 insert into field (name, cat_id) values ('o chem rech', 3);
 
-INSERT INTO operator (name) VALUES ('Ivanov');
-INSERT INTO operator (name) VALUES ('Petrov');
-INSERT INTO operator (name) VALUES ('Sidorov');
+INSERT INTO role (name) VALUES ('admin');
+INSERT INTO role (name) VALUES ('operator');
 
-INSERT INTO document (cat_id, operator_id) VALUES (1, 3);
-INSERT INTO document (cat_id, operator_id) VALUES (2, 2);
-INSERT INTO document (cat_id, operator_id) VALUES (3, 1);
-INSERT INTO document (cat_id, operator_id) VALUES (1, 3);
-INSERT INTO document (cat_id, operator_id) VALUES (2, 2);
-INSERT INTO document (cat_id, operator_id) VALUES (3, 1);
+INSERT INTO operator (name, role_id) VALUES ('Ivanov', 1);
+INSERT INTO operator (name, role_id) VALUES ('Petrov', 2);
+INSERT INTO operator (name, role_id) VALUES ('Sidorov', 2);
+
+INSERT INTO document (cat_id, operator_id, name) VALUES (1, 3, '№ 1');
+INSERT INTO document (cat_id, operator_id, name) VALUES (2, 2, '№ 2');
+INSERT INTO document (cat_id, operator_id, name) VALUES (3, 1, '№ 3');
+INSERT INTO document (cat_id, operator_id, name) VALUES (1, 3, '№ 4');
+INSERT INTO document (cat_id, operator_id, name) VALUES (2, 2, '№ 5');
+INSERT INTO document (cat_id, operator_id, name) VALUES (3, 1, '№ 6');
 
 INSERT INTO value (doc_id, field_id, info) VALUES (1, 1, 'zavtra');

@@ -7,3 +7,5 @@ drop table document;
 drop table category;
 
 drop table operator;
+
+drop table role;
