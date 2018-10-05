@@ -7,6 +7,8 @@ import repository.dao.RoleDao;
 import repository.dao.daoImpl.RoleDaoImpl;
 import service.OperatorManager;
 
+import java.util.List;
+
 public class OperatorManagerImpl implements OperatorManager {
 
     OperatorDao operatorDao;
@@ -18,9 +20,9 @@ public class OperatorManagerImpl implements OperatorManager {
     }
 
     @Override
-    public int addOperator(String nameOfOperator, Integer numberOfRole) {
+    public int addOperator(String nameOfOperator, String numberOfRole) {
         if (nameOfOperator != null && numberOfRole != null) {
-            Operator newOperator = new Operator(null, nameOfOperator, numberOfRole);
+            Operator newOperator = new Operator(null, nameOfOperator, Integer.parseInt(numberOfRole));
             operatorDao.addOperator(newOperator);
             return 1;
         }
@@ -28,13 +30,18 @@ public class OperatorManagerImpl implements OperatorManager {
     }
 
     @Override
-    public int changeRoleOfOperatorById(Integer operatorId, Integer newRoleId) {
+    public int changeRoleOfOperatorById(String operatorId, String newRoleId) {
         if (operatorId != null && newRoleId != null) {
-            Operator operator = operatorDao.getOperatorById(operatorId);
-            Operator newOperator = new Operator(operator.getId(), operator.getName(), newRoleId);
+            Operator operator = operatorDao.getOperatorById(Integer.parseInt(operatorId));
+            Operator newOperator = new Operator(operator.getId(), operator.getName(), Integer.parseInt(newRoleId));
             operatorDao.updateRoleOfOperatorById(newOperator);
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public List<Operator> getOperators() {
+        return operatorDao.getAllOperatorsWithId();
     }
 }

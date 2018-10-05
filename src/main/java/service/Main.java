@@ -11,7 +11,8 @@ public class Main {
 //        operatorManager.addRole("superviser");
 //        operatorManager.removeRoleById(3);
 //        operatorManager.addOperator("Pushkin", 4);
-        operatorManager.changeRoleOfOperatorById(2,6);
+//        operatorManager.changeRoleOfOperatorById(2,6);
+//        System.out.println(operatorManager.getOperators());
 
         DocumentManagerImpl documentManager = new DocumentManagerImpl();
 //        documentManager.addDocumentByOperator(2, "YAdoc")
