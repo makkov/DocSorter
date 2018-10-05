@@ -10,8 +10,8 @@ public class Main {
         OperatorManagerImpl operatorManager = new OperatorManagerImpl();
 //        operatorManager.addRole("superviser");
 //        operatorManager.removeRoleById(3);
-//        operatorManager.addOperator("Pushkin", 4);
-//        operatorManager.changeRoleOfOperatorById(2,6);
+        operatorManager.addOperator("makkov","123321", "Sushkin", "true", "1");
+//        operatorManager.changeRoleOfOperatorById("2", "1");
 //        System.out.println(operatorManager.getOperators());
 
         DocumentManagerImpl documentManager = new DocumentManagerImpl();

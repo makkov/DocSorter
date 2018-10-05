@@ -18,9 +18,12 @@ public class OperatorDaoImpl implements OperatorDao {
     public boolean addOperator(Operator operator) {
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO operator VALUES (DEFAULT, ?, ?)")) {
-            preparedStatement.setString(1, operator.getName());
-            preparedStatement.setInt(2, operator.getRole());
+                     "INSERT INTO operator VALUES (DEFAULT, ?, ?, ?, ?, ?)")) {
+            preparedStatement.setString(1, operator.getLogin());
+            preparedStatement.setString(2, operator.getPassword());
+            preparedStatement.setString(3, operator.getName());
+            preparedStatement.setBoolean(4, operator.getActive());
+            preparedStatement.setInt(5, operator.getRole());
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,8 +88,11 @@ public class OperatorDaoImpl implements OperatorDao {
                 if (resultSet.next()) {
                     return new Operator(
                             resultSet.getInt(1),
-                            resultSet.getString(2),
-                            resultSet.getInt(3));
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getBoolean(5),
+                    resultSet.getInt(6));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -107,8 +113,11 @@ public class OperatorDaoImpl implements OperatorDao {
                 while (resultSet.next()) {
                     result.add(new Operator(
                             resultSet.getInt(1),
-                            resultSet.getString(2),
-                            resultSet.getInt(3)));
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getBoolean(5),
+                    resultSet.getInt(6)));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

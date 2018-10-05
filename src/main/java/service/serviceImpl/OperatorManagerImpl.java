@@ -20,9 +20,23 @@ public class OperatorManagerImpl implements OperatorManager {
     }
 
     @Override
-    public int addOperator(String nameOfOperator, String numberOfRole) {
-        if (nameOfOperator != null && numberOfRole != null) {
-            Operator newOperator = new Operator(null, nameOfOperator, Integer.parseInt(numberOfRole));
+    public int addOperator(String login,
+                           String password,
+                           String name,
+                           String isActive,
+                           String numberOfRole) {
+        if (login != null &&
+                password != null &&
+                name != null &&
+                isActive != null &&
+                numberOfRole != null) {
+            Operator newOperator = new Operator(
+                    null,
+                    login,
+                    password,
+                    name,
+                    Boolean.parseBoolean(isActive),
+                    Integer.parseInt(numberOfRole));
             operatorDao.addOperator(newOperator);
             return 1;
         }
@@ -33,7 +47,13 @@ public class OperatorManagerImpl implements OperatorManager {
     public int changeRoleOfOperatorById(String operatorId, String newRoleId) {
         if (operatorId != null && newRoleId != null) {
             Operator operator = operatorDao.getOperatorById(Integer.parseInt(operatorId));
-            Operator newOperator = new Operator(operator.getId(), operator.getName(), Integer.parseInt(newRoleId));
+            Operator newOperator = new Operator(
+                    operator.getId(),
+                    operator.getLogin(),
+                    operator.getPassword(),
+                    operator.getName(),
+                    operator.getActive(),
+                    Integer.parseInt(newRoleId));
             operatorDao.updateRoleOfOperatorById(newOperator);
             return 1;
         }

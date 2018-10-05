@@ -26,9 +26,9 @@ public class CreateOperatorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String nameOfOperator = req.getParameter("nameOperator");
-        String categoryId = req.getParameter("categoryId");
-        operatorManager.addOperator(nameOfOperator, categoryId);
-        resp.sendRedirect("/operators");
+//        String nameOfOperator = req.getParameter("nameOperator");
+//        String categoryId = req.getParameter("categoryId");
+//        operatorManager.addOperator(nameOfOperator, categoryId);
+//        resp.sendRedirect("/operators");
     }
 }

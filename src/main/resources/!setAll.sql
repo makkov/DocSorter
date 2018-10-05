@@ -14,9 +14,9 @@ insert into field (name, cat_id) values ('o chem rech', 3);
 INSERT INTO role (name) VALUES ('admin');
 INSERT INTO role (name) VALUES ('operator');
 
-INSERT INTO operator (name, role_id) VALUES ('Ivanov', 1);
-INSERT INTO operator (name, role_id) VALUES ('Petrov', 2);
-INSERT INTO operator (name, role_id) VALUES ('Sidorov', 2);
+INSERT INTO operator (login, password, name, "isActive", role_id) VALUES ('qwer', '1', 'Ivanov', true, 1);
+INSERT INTO operator (login, password, name, "isActive", role_id) VALUES ('asdf', '2', 'Petrov', false, 2);
+INSERT INTO operator (login, password, name, "isActive", role_id) VALUES ('zxcv', '33', 'Sidorov', true, 2);
 
 INSERT INTO document (cat_id, operator_id, name) VALUES (1, 3, '№ 1');
 INSERT INTO document (cat_id, operator_id, name) VALUES (2, 2, '№ 2');

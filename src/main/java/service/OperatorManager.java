@@ -6,7 +6,11 @@ import java.util.List;
 
 public interface OperatorManager {
 
-    int addOperator(String nameOfOperator, String numberOfRole);
+    int addOperator(String login,
+                    String password,
+                    String name,
+                    String isActive,
+                    String numberOfRole);
 
     int changeRoleOfOperatorById(String operatorId, String newRoleId);
 

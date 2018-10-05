@@ -33,7 +33,10 @@ OIDS=FALSE
 
 CREATE TABLE "operator" (
 	"id" serial NOT NULL,
+	"login" varchar NOT NULL UNIQUE,
+	"password" varchar NOT NULL,
 	"name" varchar NOT NULL,
+	"isActive" BOOLEAN NOT NULL,
 	"role_id" int NOT NULL,
 	CONSTRAINT operator_pk PRIMARY KEY ("id")
 ) WITH (
