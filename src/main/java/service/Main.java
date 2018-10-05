@@ -1,16 +1,13 @@
 package service;
 
-import service.serviceImpl.DocumentFeaturesManagerImpl;
-import service.serviceImpl.DocumentManagerImpl;
-import service.serviceImpl.OperatorManagerImpl;
-import service.serviceImpl.RoleManagerImpl;
+import service.serviceImpl.*;
 
 public class Main {
     public static void main(String[] args) {
         OperatorManagerImpl operatorManager = new OperatorManagerImpl();
 //        operatorManager.addRole("superviser");
 //        operatorManager.removeRoleById(3);
-        operatorManager.addOperator("makkov","123321", "Sushkin", "true", "1");
+//        operatorManager.addOperator("makkov","123321", "Sushkin", "true", "1");
 //        operatorManager.changeRoleOfOperatorById("2", "1");
 //        System.out.println(operatorManager.getOperators());
 
@@ -23,5 +20,8 @@ public class Main {
         DocumentFeaturesManager documentFeaturesManager = new DocumentFeaturesManagerImpl();
 //        documentFeaturesManager.addCategoryOfDocument("YA bureaucratic document");
 //        documentFeaturesManager.addFieldsOfCategory(4, "bla bla bla");
+
+        LoginManager loginManager = new LoginManagerImpl();
+//        System.out.println(loginManager.getRole("makkov"));
     }
 }

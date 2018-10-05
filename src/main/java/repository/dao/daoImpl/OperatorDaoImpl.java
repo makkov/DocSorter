@@ -127,4 +127,29 @@ public class OperatorDaoImpl implements OperatorDao {
         }
         return result;
     }
+
+    @Override
+    public Operator getOperatorByLogin(String login) {
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT * FROM operator WHERE login = ?")) {
+            preparedStatement.setString(1, login);
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                if (resultSet.next()) {
+                    return new Operator(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getString(3),
+                            resultSet.getString(4),
+                            resultSet.getBoolean(5),
+                            resultSet.getInt(6));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

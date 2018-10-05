@@ -17,4 +17,6 @@ public interface OperatorDao {
     Operator getOperatorById(Integer id);
 
     List<Operator> getAllOperatorsWithId();
+
+    Operator getOperatorByLogin(String login);
 }
