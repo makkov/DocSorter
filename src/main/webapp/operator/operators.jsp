@@ -21,7 +21,9 @@
 <%
     }
 %>
-<a href="/operators/createOperator">Create Operator</a>
+<br>
+<a href="/operators/createOperator">Create Operator</a><br>
+<br>
 <a href="/operators/changeRole">Change role of operator</a>
 </body>
 </html>

@@ -11,6 +11,7 @@
     <title>DocSorter</title>
   </head>
   <body>
-  <a href="/operators">Operators</a>
+  <a href="/login">Log in</a><br>
+  <a href="/registration">Registration</a>
   </body>
 </html>

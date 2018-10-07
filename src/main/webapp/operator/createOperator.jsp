@@ -13,8 +13,11 @@
 </head>
 <body>
 <form action="/operators/createOperator" method="post">
-    <input type="nameOperator" name="nameOperator"/>
-    <input type="categoryId" name="categoryId"/>
+    <label>login <input type="loginOfOperator" name="loginOfOperator"/></label><br>
+    <label>password <input type="password" name="password"/></label><br>
+    <label>name <input type="nameOperator" name="nameOperator"/></label><br>
+    <label>isActive <input type="isActive" name="isActive"/></label><br>
+    <label>number of role <input type="categoryId" name="categoryId"/></label>
     <input type="submit">
 </form>
 

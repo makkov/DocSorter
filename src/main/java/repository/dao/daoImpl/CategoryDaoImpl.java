@@ -17,7 +17,7 @@ public class CategoryDaoImpl implements CategoryDao {
     public boolean addCategory(Category category) {
         try (Connection connection = connectionManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "INSERT INTO category VALUES (DEFAULT, ?, ?)")) {
+                     "INSERT INTO category VALUES (DEFAULT, ?)")) {
             preparedStatement.setString(1, category.getName());
             preparedStatement.execute();
         } catch (SQLException e) {

@@ -21,6 +21,7 @@ public class Main {
 //        documentFeaturesManager.addCategoryOfDocument("YA bureaucratic document");
 //        documentFeaturesManager.addFieldsOfCategory(4, "bla bla bla");
 
+
         LoginManager loginManager = new LoginManagerImpl();
 //        System.out.println(loginManager.getRole("makkov"));
     }

@@ -6,6 +6,7 @@ import repository.dao.daoImpl.OperatorDaoImpl;
 import repository.dao.RoleDao;
 import repository.dao.daoImpl.RoleDaoImpl;
 import service.OperatorManager;
+import utils.UtilMD5;
 
 import java.util.List;
 
@@ -30,6 +31,8 @@ public class OperatorManagerImpl implements OperatorManager {
                 name != null &&
                 isActive != null &&
                 numberOfRole != null) {
+            UtilMD5 utilMD5 = new UtilMD5();
+            password = utilMD5.md5Custom(password);
             Operator newOperator = new Operator(
                     null,
                     login,

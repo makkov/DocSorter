@@ -1,4 +1,4 @@
-package controller.operatorController;
+package controller.registration;
 
 import service.OperatorManager;
 import service.serviceImpl.OperatorManagerImpl;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CreateOperatorServlet extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 
     OperatorManager operatorManager;
 
@@ -21,16 +21,19 @@ public class CreateOperatorServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/operator/createOperator.jsp").forward(req, resp);
+        req.getRequestDispatcher("/registration/registration.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String defaultActivity = "false";
+        String defaultRole = "2";
+
         String loginOfOperator = req.getParameter("loginOfOperator");
         String password = req.getParameter("password");
         String nameOfOperator = req.getParameter("nameOperator");
-        String isActive = req.getParameter("isActive");
-        String categoryId = req.getParameter("categoryId");
+        String isActive = defaultActivity;
+        String categoryId = defaultRole;
         operatorManager.addOperator(loginOfOperator, password, nameOfOperator, isActive, categoryId);
         resp.sendRedirect("/operators");
     }

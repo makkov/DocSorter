@@ -8,6 +8,8 @@ import repository.dao.daoImpl.CategoryDaoImpl;
 import repository.dao.daoImpl.FieldDaoImpl;
 import service.DocumentFeaturesManager;
 
+import java.util.List;
+
 public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
 
     CategoryDao categoryDao;
@@ -37,5 +39,10 @@ public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
             return 1;
         }
         return 0;
+    }
+
+    @Override
+    public List<Category> getСategories() {
+        return categoryDao.getAllCategoriesWithId();
     }
 }
