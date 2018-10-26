@@ -13,6 +13,7 @@ public class Main {
 
         DocumentManagerImpl documentManager = new DocumentManagerImpl();
 //        documentManager.addDocumentByOperator(2, "YAdoc")
+        documentManager.addDocument("1", "2", "newDoc", "3", "plachu ya");
 
         RoleManager roleManager = new RoleManagerImpl();
 //        roleManager.addRole("бездельник");
@@ -20,9 +21,11 @@ public class Main {
         DocumentFeaturesManager documentFeaturesManager = new DocumentFeaturesManagerImpl();
 //        documentFeaturesManager.addCategoryOfDocument("YA bureaucratic document");
 //        documentFeaturesManager.addFieldsOfCategory(4, "bla bla bla");
+//        System.out.println(documentFeaturesManager.getFieldByIdCategory("1"));
 
 
         LoginManager loginManager = new LoginManagerImpl();
 //        System.out.println(loginManager.getRole("makkov"));
+
     }
 }

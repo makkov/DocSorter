@@ -101,4 +101,29 @@ public class FieldDaoImpl implements FieldDao {
         }
         return result;
     }
+
+    @Override
+    public List<Field> getFieldsByIdCategory(Integer id) {
+        List<Field> result = null;
+
+        try (Connection connection = connectionManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT * FROM field where cat_id = ?")) {
+            preparedStatement.setInt(1, id);
+            try (ResultSet resultSet = preparedStatement.executeQuery();) {
+                result = new ArrayList<>();
+                while (resultSet.next()) {
+                    result.add(new Field(
+                            resultSet.getInt(1),
+                            resultSet.getString(2),
+                            resultSet.getInt(3)));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

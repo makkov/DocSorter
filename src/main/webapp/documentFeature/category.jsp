@@ -16,10 +16,14 @@
 <%
     List<Category> list = (List<Category>) request.getAttribute("category");
     for (Category category : list) {%>
-<a href="/category?id=<%=category.getId()%>"><%=category.getId()%><%=category.getName()%>
+<a href="/category/fields?id=<%=category.getId()%>"><%=category.getId()%><%=category.getName()%>
 </a><BR>
 <%
     }
 %>
+
+<br>
+<a href="/category/createCategory">Create category</a><br>
+
 </body>
 </html>

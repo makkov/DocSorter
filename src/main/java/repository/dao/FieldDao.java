@@ -16,4 +16,6 @@ public interface FieldDao {
 
     List<Field> getAllFieldsWithId();
 
+    List<Field> getFieldsByIdCategory(Integer id);
+
 }

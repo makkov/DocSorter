@@ -8,6 +8,7 @@ import repository.dao.daoImpl.CategoryDaoImpl;
 import repository.dao.daoImpl.FieldDaoImpl;
 import service.DocumentFeaturesManager;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
@@ -20,7 +21,6 @@ public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
         this.fieldDao = new FieldDaoImpl();
     }
 
-
     @Override
     public int addCategoryOfDocument(String nameCategory) {
         if (nameCategory != null) {
@@ -32,9 +32,9 @@ public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
     }
 
     @Override
-    public int addFieldsOfCategory(Integer categoryId, String newField) {
+    public int addFieldsOfCategory(String categoryId, String newField) {
         if (categoryId != null && newField != null) {
-            Field newFieldInDocument = new Field(null, newField, categoryId);
+            Field newFieldInDocument = new Field(null, newField, Integer.parseInt(categoryId));
             fieldDao.addField(newFieldInDocument);
             return 1;
         }
@@ -44,5 +44,13 @@ public class DocumentFeaturesManagerImpl implements DocumentFeaturesManager {
     @Override
     public List<Category> getСategories() {
         return categoryDao.getAllCategoriesWithId();
+    }
+
+    @Override
+    public List<Field> getFieldByIdCategory(String id) {
+        if (id != null) {
+            return fieldDao.getFieldsByIdCategory(Integer.parseInt(id));
+        }
+        return null;
     }
 }

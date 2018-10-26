@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
             int role = loginManager.getRole(login);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("role", role);
-            resp.sendRedirect("/operators");
+            resp.sendRedirect("/dashBoard");
         } else {
             resp.sendRedirect("/login?errorCode=wrongLogin");
         }

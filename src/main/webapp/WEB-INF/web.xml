@@ -56,7 +56,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dashBoard</servlet-name>
-        <url-pattern>/inner/dashBoard</url-pattern>
+        <url-pattern>/dashBoard</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -78,5 +78,49 @@
         <url-pattern>/category/createCategory</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>fields</servlet-name>
+        <servlet-class>controller.documentFeatureManagerController.FieldsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fields</servlet-name>
+        <url-pattern>/category/fields</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>createField</servlet-name>
+        <servlet-class>controller.documentFeatureManagerController.CreateFieldToCategory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createField</servlet-name>
+        <url-pattern>/category/fields/createField</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>documents</servlet-name>
+        <servlet-class>controller.documentController.DocumentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>documents</servlet-name>
+        <url-pattern>/documents</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>docInfo</servlet-name>
+        <servlet-class>controller.documentController.DocumentViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>docInfo</servlet-name>
+        <url-pattern>/documents/viewDoc</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addDocument</servlet-name>
+        <servlet-class>controller.documentController.AddDocumentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addDocument</servlet-name>
+        <url-pattern>/documents/addDocument</url-pattern>
+    </servlet-mapping>
 
 </web-app>
